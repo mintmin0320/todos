@@ -1,4 +1,4 @@
-import type { Todo } from "../api/queries/get-todos"
+import type { Todo } from "../api/queries/readTodos"
 
 type Props = { todos: Todo[] }
 

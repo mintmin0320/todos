@@ -1,7 +1,7 @@
 import { revalidateTag } from "next/cache"
 import { NextResponse } from "next/server"
 
-import { addTodo } from "@/features/todos/api/mutations/add-todo"
+import { addTodo } from "@/features/todos/api/mutations/addTodos"
 
 export async function POST(request: Request) {
   try {

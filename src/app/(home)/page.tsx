@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 
-import { fetchTodos } from "@/features/todos/api/queries/fetch-todos"
-import type { Todo } from "@/features/todos/api/queries/get-todos"
+import { fetchTodos } from "@/features/todos/api/queries/fetchTodos"
+import type { Todo } from "@/features/todos/api/queries/readTodos"
 import TodoForm from "@/features/todos/components/TodoForm"
 import TodoList from "@/features/todos/components/TodoList"
 import TodoListSkeleton from "@/features/todos/components/TodoListSkeleton"
