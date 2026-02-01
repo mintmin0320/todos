@@ -14,6 +14,13 @@ CREATE POLICY "Allow public read on todos"
   TO anon
   USING (true);
 
+-- anon(비로그인)이 INSERT 할 수 있게 (할 일 추가용)
+CREATE POLICY "Allow public insert on todos"
+  ON public.todos
+  FOR INSERT
+  TO anon
+  WITH CHECK (true);
+
 -- 2-B. [옵션] 로그인한 사용자만 읽기 허용 (위 2-A 대신 둘 중 하나만 사용)
 --     → Supabase Auth 로그인 후에만 조회 가능
 -- CREATE POLICY "Allow authenticated read on todos"
