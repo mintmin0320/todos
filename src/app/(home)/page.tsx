@@ -1,6 +1,7 @@
 import { Suspense } from "react"
 
-import { getTodos, type Todo } from "@/features/todos/api/queries/get-todos"
+import { fetchTodos } from "@/features/todos/api/queries/fetch-todos"
+import type { Todo } from "@/features/todos/api/queries/get-todos"
 import TodoList from "@/features/todos/components/TodoList"
 import TodoListSkeleton from "@/features/todos/components/TodoListSkeleton"
 import { AsyncBoundary } from "@/shared/components/AsyncBoundary"
@@ -16,7 +17,7 @@ export default function Home() {
       </div>
 
       <Suspense fallback={<TodoListSkeleton />}>
-        <AsyncBoundary getData={getTodos}>
+        <AsyncBoundary getData={fetchTodos}>
           {(todos: Todo[]) => <TodoList todos={todos} />}
         </AsyncBoundary>
       </Suspense>
