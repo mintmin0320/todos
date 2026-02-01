@@ -16,14 +16,20 @@ export type Database = {
     Tables: {
       todos: {
         Row: {
+          completed: boolean
+          content: string | null
           created_at: string
           id: number
         }
         Insert: {
+          completed?: boolean
+          content?: string | null
           created_at?: string
           id?: number
         }
         Update: {
+          completed?: boolean
+          content?: string | null
           created_at?: string
           id?: number
         }
