@@ -1,4 +1,4 @@
-import { createClient } from "@/shared/lib/supabase/server"
+import { createClient } from "@/shared/utils/supabase/server"
 
 export async function addTodo(content: string): Promise<void> {
   const supabase = await createClient()

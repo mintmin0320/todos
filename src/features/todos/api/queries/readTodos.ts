@@ -1,12 +1,13 @@
-import type { Tables } from "types_db"
+import { createClient } from "@/shared/utils/supabase/server"
 
-import { createClient } from "@/shared/lib/supabase/server"
-
-export type Todo = Tables<"todos">
+import type { Todo } from "../types/todos.types"
 
 export async function readTodos(): Promise<Todo[]> {
   const supabase = await createClient()
-  const { data, error } = await supabase.from("todos").select()
+  const { data, error } = await supabase
+    .from("todos")
+    .select()
+    .order("id", { ascending: true })
 
   if (error) throw error
 
