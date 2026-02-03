@@ -1,7 +1,7 @@
 import { revalidateTag } from "next/cache"
 import { NextResponse } from "next/server"
 
-import { deleteTodos } from "@/features/todos/api/mutations/deleteTodos"
+import { deleteTodo } from "@/features/todos/api/mutations/deleteTodo"
 import { readTodos } from "@/features/todos/api/queries/readTodos"
 
 export async function GET() {
@@ -31,7 +31,7 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: "ids array required" }, { status: 400 })
     }
 
-    await deleteTodos(todoIds)
+    await deleteTodo(todoIds)
     revalidateTag("todos")
 
     return NextResponse.json({ message: "Todos deleted" }, { status: 200 })

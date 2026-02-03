@@ -1,7 +1,7 @@
 import { revalidateTag } from "next/cache"
 import { NextResponse } from "next/server"
 
-import { updateTodos } from "@/features/todos/api/mutations/updateTodos"
+import { updateTodo } from "@/features/todos/api/mutations/updateTodo"
 
 export async function PATCH(
   request: Request,
@@ -28,7 +28,7 @@ export async function PATCH(
       )
     }
 
-    await updateTodos(todoId, completed)
+    await updateTodo(todoId, completed)
     revalidateTag("todos")
 
     return NextResponse.json({ message: "Todo updated" }, { status: 200 })
