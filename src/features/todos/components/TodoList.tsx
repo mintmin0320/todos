@@ -2,6 +2,7 @@ import { cn } from "@/shared/utils/twMerge"
 
 import type { Todo } from "../api/types/todos.types"
 
+import TodoCheckbox from "./TodoCheckbox"
 import TodoDeleteButton from "./TodoDeleteButton"
 
 type Props = { todos: Todo[] }
@@ -19,6 +20,7 @@ export default function TodoList({ todos }: Props) {
           className="group flex items-center justify-between gap-3 border border-t-0 border-gray-200 bg-white px-4 py-3"
         >
           <div className="flex items-center gap-4">
+            <TodoCheckbox id={todo.id} completed={todo.completed} />
             <span
               className={cn("text-sm", {
                 "text-gray-500 line-through": todo.completed,
