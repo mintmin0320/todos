@@ -21,6 +21,21 @@ CREATE POLICY "Allow public insert on todos"
   TO anon
   WITH CHECK (true);
 
+-- anon(비로그인)이 UPDATE 할 수 있게 (완료 토글 등)
+CREATE POLICY "Allow public update on todos"
+  ON public.todos
+  FOR UPDATE
+  TO anon
+  USING (true)
+  WITH CHECK (true);
+
+-- anon(비로그인)이 DELETE 할 수 있게 (단일/일괄 삭제)
+CREATE POLICY "Allow public delete on todos"
+  ON public.todos
+  FOR DELETE
+  TO anon
+  USING (true);
+
 -- 2-B. [옵션] 로그인한 사용자만 읽기 허용 (위 2-A 대신 둘 중 하나만 사용)
 --     → Supabase Auth 로그인 후에만 조회 가능
 -- CREATE POLICY "Allow authenticated read on todos"
