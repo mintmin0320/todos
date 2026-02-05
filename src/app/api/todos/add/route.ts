@@ -15,9 +15,14 @@ export async function POST(request: Request) {
       )
     }
 
-    await addTodo(content)
+    const success = await addTodo(content)
+    if (!success) {
+      return NextResponse.json(
+        { message: "Error adding todo" },
+        { status: 500 },
+      )
+    }
     revalidateTag("todos")
-
     return NextResponse.json({ message: "Todo added" }, { status: 200 })
   } catch (error) {
     return NextResponse.json(
