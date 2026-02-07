@@ -7,6 +7,8 @@ import TodoList from "@/features/todos/components/TodoList"
 import TodoListSkeleton from "@/features/todos/components/TodoListSkeleton"
 import { AsyncBoundary } from "@/shared/components/AsyncBoundary"
 
+export const dynamic = "force-dynamic"
+
 export default function Home() {
   return (
     <main className="mx-auto flex max-w-lg flex-col gap-8">
