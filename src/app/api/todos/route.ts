@@ -1,8 +1,8 @@
 import { revalidateTag } from "next/cache"
 import { NextResponse } from "next/server"
 
-import { deleteTodo } from "@/features/todos/api/mutations/deleteTodo"
-import { readTodos } from "@/features/todos/api/queries/readTodos"
+import { deleteTodo } from "@/features/todos/repositories/delete"
+import { readTodos } from "@/features/todos/repositories/read"
 
 export async function GET() {
   try {

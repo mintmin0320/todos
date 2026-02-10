@@ -1,20 +1,14 @@
 "use client"
 
-import { useRouter } from "next/navigation"
-
 import { CloseIcon } from "@/shared/assets/icons/CloseIcon"
 
-import { fetchDeleteTodos } from "../api/mutations/fetchDeleteTodos"
+import { deleteTodoAction } from "../actions/deleteTodoAction"
 
 type Props = { id: number }
 
 export default function TodoDeleteButton({ id }: Props) {
-  const router = useRouter()
-
   async function handleDelete() {
-    const success = await fetchDeleteTodos([id])
-
-    if (success) router.refresh()
+    await deleteTodoAction([id])
   }
 
   return (

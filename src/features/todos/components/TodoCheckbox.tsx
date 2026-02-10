@@ -1,22 +1,16 @@
 "use client"
 
-import { useRouter } from "next/navigation"
-
 import { CheckIcon } from "@/shared/assets/icons/CheckIcon"
 import { cn } from "@/shared/utils/twMerge"
 
-import { fetchUpdateTodoComplete } from "../api/mutations/fetchUpdateTodoComplete"
+import { updateTodoAction } from "../actions/updateTodoAction"
 
 type Props = { id: number; completed: boolean }
 
 export default function TodoCheckbox({ id, completed }: Props) {
-  const router = useRouter()
-
   async function handleToggle() {
     const nextCompleted = !completed
-    const success = await fetchUpdateTodoComplete(id, nextCompleted)
-
-    if (success) router.refresh()
+    await updateTodoAction(id, nextCompleted)
   }
 
   return (

@@ -1,7 +1,7 @@
 import { revalidateTag } from "next/cache"
 import { NextResponse } from "next/server"
 
-import { updateTodo } from "@/features/todos/api/mutations/updateTodo"
+import { updateTodo } from "@/features/todos/repositories/update"
 
 export async function PATCH(
   request: Request,

@@ -1,29 +1,26 @@
 "use client"
 
-import { useRouter } from "next/navigation"
 import { useRef } from "react"
 
-import { fetchAddTodos } from "../api/mutations/fetchAddTodos"
+import { addTodoAction } from "../actions/addTodoAction"
 
 export default function TodoForm() {
   const inputRef = useRef<HTMLInputElement>(null)
-  const router = useRouter()
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const content = inputRef.current?.value?.trim()
+    const content = inputRef.current?.value
 
     if (!content) {
-      alert("할 일을 입력해주세요.")
-
       return
     }
 
-    const success = await fetchAddTodos(content)
+    const result = await addTodoAction(content)
 
-    if (success) {
+    if (result.success) {
       inputRef.current!.value = ""
-      router.refresh()
+    } else if (result.error) {
+      alert(result.error)
     }
   }
 

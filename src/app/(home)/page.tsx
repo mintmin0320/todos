@@ -1,13 +1,11 @@
 import { Suspense } from "react"
 
-import { fetchTodos } from "@/features/todos/api/queries/fetchTodos"
 import type { Todo } from "@/features/todos/api/types/todos.types"
 import TodoForm from "@/features/todos/components/TodoForm"
 import TodoList from "@/features/todos/components/TodoList"
 import TodoListSkeleton from "@/features/todos/components/TodoListSkeleton"
+import { fetchTodos } from "@/features/todos/queries/fetchTodos"
 import { AsyncBoundary } from "@/shared/components/AsyncBoundary"
-
-export const dynamic = "force-dynamic"
 
 export default function Home() {
   return (
