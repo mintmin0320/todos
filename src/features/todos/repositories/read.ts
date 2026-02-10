@@ -1,6 +1,6 @@
 import { createClient } from "@/shared/utils/supabase/server"
 
-import type { Todo } from "../types/todos.types"
+import { Todo } from "../api/types/todos.types"
 
 export async function readTodos(): Promise<Todo[]> {
   const supabase = await createClient()

@@ -1,4 +1,4 @@
-import type { Todo } from "../types/todos.types"
+import { Todo } from "../api/types/todos.types"
 
 export async function fetchTodos(): Promise<Todo[]> {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/todos`, {
